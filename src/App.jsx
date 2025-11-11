@@ -1078,6 +1078,113 @@ const EduSpark = () => {
             </div>
           </div>
         )}
+
+        {activeTab === 'alumni' && (
+          <div className="space-y-12">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 rainbow-text">Success Stories</h2>
+              <p className="text-xl text-gray-600">Meet our outstanding alumni who transformed their lives through EduSpark</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { name: "Chioma Okafor", level: "SS3 to University", achievement: "Got 95% in Physics", story: "EduSpark's AI simulations helped me understand complex concepts that seemed impossible before.", image: "👩‍🎓" },
+                { name: "Tunde Adeleke", level: "University Graduate", achievement: "Full Scholarship", story: "The advanced courses prepared me perfectly for my computer science degree at a top university.", image: "👨‍🎓" },
+                { name: "Blessing Okoro", level: "JSS2 to Excellence", achievement: "Top 10 in Nation", story: "I went from struggling in math to becoming the best student in my state. Thank you EduSpark!", image: "👩‍🎓" },
+                { name: "Emeka Nwosu", level: "University Postgrad", achievement: "Coding Expert", story: "The Machine Learning course launched my career as an AI engineer at a leading tech company.", image: "👨‍💼" },
+                { name: "Zainab Ibrahim", level: "Primary to Secondary", achievement: "Confident Learner", story: "The free trials let me explore subjects before committing. Now I love learning!", image: "👧" },
+                { name: "Kadir Hassan", level: "University Graduate", achievement: "Research Analyst", story: "The data analytics course gave me skills that got me a dream job in fintech.", image: "👨‍💼" }
+              ].map((alumni, idx) => (
+                <div key={idx} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border-t-4 border-blue-600">
+                  <div className="text-5xl mb-4 text-center">{alumni.image}</div>
+                  <h3 className="text-xl font-bold mb-2">{alumni.name}</h3>
+                  <p className="text-sm text-cyan-600 font-semibold mb-3">{alumni.level}</p>
+                  <div className="bg-green-50 rounded-lg p-3 mb-4 border-l-4 border-green-600">
+                    <p className="text-sm font-semibold text-green-700">{alumni.achievement}</p>
+                  </div>
+                  <p className="text-gray-600 italic">"{alumni.story}"</p>
+                  <div className="mt-4 flex gap-2">
+                    {[1, 2, 3, 4, 5].map(i => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-2xl p-8 md:p-12 text-center">
+              <h3 className="text-3xl font-bold mb-4">Ready to Write Your Success Story?</h3>
+              <p className="text-lg mb-8 opacity-95">Join thousands of students achieving their dreams with EduSpark</p>
+              <button onClick={() => setActiveTab('courses')} className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-all">
+                Explore Courses Now
+              </button>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'gallery' && (
+          <div className="space-y-12">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 rainbow-text">Course Gallery</h2>
+              <p className="text-xl text-gray-600">Visual showcase of our comprehensive learning platform</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: "📚", title: "AI-Powered Lessons", desc: "Interactive lessons with intelligent AI assistance" },
+                { icon: "🧪", title: "Virtual Simulations", desc: "Hands-on experiments and science simulations" },
+                { icon: "💻", title: "Coding Courses", desc: "From Python basics to advanced Machine Learning" },
+                { icon: "📊", title: "Analytics Dashboard", desc: "Track your progress with detailed insights" },
+                { icon: "🎓", title: "Expert Instructors", desc: "Learn from experienced educators and AI tutors" },
+                { icon: "🏆", title: "Certifications", desc: "Earn recognized certificates upon completion" },
+                { icon: "🌍", title: "Global Community", desc: "Connect with learners worldwide" },
+                { icon: "⚡", title: "Fast Learning", desc: "Accelerated courses with AI optimization" }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 text-center border border-gray-100">
+                  <div className="text-6xl mb-4">{item.icon}</div>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-gray-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-gradient-to-br from-slate-100 to-slate-50 rounded-2xl p-8 md:p-12">
+              <h3 className="text-3xl font-bold mb-8 text-center text-gray-800">Platform Features</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                {[
+                  { title: "Responsive Design", desc: "Learn on any device - desktop, tablet, or mobile" },
+                  { title: "Free Trials", desc: "Try any course with 3 free lessons before subscribing" },
+                  { title: "24/7 AI Tutor", desc: "Get instant help anytime with our smart AI assistant" },
+                  { title: "Flexible Plans", desc: "Choose from FREE, $1, $3, $5, or $20 plans" },
+                  { title: "Progress Tracking", desc: "Monitor your learning journey with detailed metrics" },
+                  { title: "Secure Payment", desc: "Safe transactions via Paystack payment gateway" }
+                ].map((feature, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">{feature.title}</h4>
+                      <p className="text-gray-600">{feature.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { number: "50K+", label: "Active Learners", icon: Users },
+                { number: "500+", label: "Courses Available", icon: BookOpen },
+                { number: "95%", label: "Success Rate", icon: TrendingUp }
+              ].map((stat, idx) => (
+                <div key={idx} className="bg-gradient-to-br from-blue-600 to-cyan-600 text-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all">
+                  <stat.icon className="w-12 h-12 mx-auto mb-4 opacity-80" />
+                  <div className="text-5xl font-bold mb-2">{stat.number}</div>
+                  <p className="text-lg opacity-90">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </main>
 
       {/* AI Chatbot */}
@@ -1312,4 +1419,6 @@ const EduSpark = () => {
     </div>
   );
 };
+
+export default EduSpark;
 
